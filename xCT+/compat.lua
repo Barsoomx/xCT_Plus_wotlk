@@ -4,6 +4,21 @@ else
     BATTLE_PET_CAGE_ITEM_NAME = "Caged %s"
 end
 
+function GetSpecialization(isInspect, isPet, specGroup)
+    local currentSpecGroup = GetActiveTalentGroup(isInspect, isPet) or (specGroup or 1)
+    local maxPoints, specName, currentSpecId = 0, nil, nil
+
+	for i = 1, MAX_TALENT_TABS do
+		local name, _, pointsSpent = GetTalentTabInfo(i, isInspect, isPet, currentSpecGroup)
+		if maxPoints <= pointsSpent then
+			maxPoints = pointsSpent
+			specName = name
+            currentSpecId = i
+		end
+	end
+    return currentSpecId, specName, maxPoints
+end
+
 RAID_CLASS_COLORS.HUNTER.colorStr = "ffabd473"
 RAID_CLASS_COLORS.WARLOCK.colorStr = "ff8788ee"
 RAID_CLASS_COLORS.PRIEST.colorStr = "ffffffff"

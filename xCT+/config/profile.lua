@@ -50,7 +50,6 @@ addon.defaults = {
       ["CombatHealing"] = false,
       ["PetMeleeDamage"] = false,
       ["CombatLogPeriodicSpells"] = false,
-      ["CombatHealingAbsorbTarget"] = false,
       ["fctSpellMechanics"] = false,
       ["fctSpellMechanicsOther"] = false,
     },
@@ -381,7 +380,6 @@ addon.defaults = {
         ["enableClassNames"] = true,
         ["enableRealmNames"] = true,
         ["enableOverHeal"] = true,
-        ["enableSelfAbsorbs"] = true,
       },
 
       class = {
@@ -604,7 +602,7 @@ addon.defaults = {
           },
           -- DO NOT USE - SHADOW PRIEST GET SHADOW ORBS
           [3] = {                                         -- Shadow
-            
+
             -- 87160 Surge of Darkness
           },
         },

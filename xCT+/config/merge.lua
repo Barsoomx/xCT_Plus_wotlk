@@ -1,17 +1,17 @@
---[[   ____    ______      
+--[[   ____    ______
       /\  _`\ /\__  _\   __
- __  _\ \ \/\_\/_/\ \/ /_\ \___ 
+ __  _\ \ \/\_\/_/\ \/ /_\ \___
 /\ \/'\\ \ \/_/_ \ \ \/\___  __\
 \/>  </ \ \ \L\ \ \ \ \/__/\_\_/
  /\_/\_\ \ \____/  \ \_\  \/_/
  \//\/_/  \/___/    \/_/
- 
+
  [=====================================]
  [  Author: Dandruff @ Whisperwind-US  ]
  [  xCT+ Version 3.x.x                 ]
  [  ©2012. All Rights Reserved.        ]
  [====================================]]
- 
+
 local ADDON_NAME, addon = ...
 
 -- =====================================================
@@ -43,7 +43,7 @@ addon.merges = {
   [148008] = CreateMergeSpellEntry("ITEM", 3.5, "Legedary Cloak for Casters"),  -- Legedary Cloak (Caster - dmg over 3s)
   [148009] = CreateMergeSpellEntry("ITEM", 5,   "Legedary Cloak for Healers"),  -- Legedary Cloak (Healer - heal over 10s)
   [149276] = CreateMergeSpellEntry("ITEM", 3.5, "Legedary Cloak for Hunters"),  -- Legedary Cloak (Hunter - dmg over 3s)
-  
+
   -- Trinket: Kardris' Toxic Totem (Based on class and spec)
   [146061] = CreateMergeSpellEntry("ITEM", 5, "Physical Damage (Melee)"),            -- Multi-Strike (Physical, Melee)
   [146063] = CreateMergeSpellEntry("ITEM", 5, "Holy Damage"),                        -- Multi-Strike (Holy Dmg, ?????)
@@ -56,7 +56,7 @@ addon.merges = {
   [146075] = CreateMergeSpellEntry("ITEM", 5, "Nature Damage (Windwalker Monks)"),   -- Multi-Strike (Nature, Monk)
   [146177] = CreateMergeSpellEntry("ITEM", 5, "Holy Healing (Priest, Paladin)"),     -- Multi-Strike (Holy, Healing)
   [146178] = CreateMergeSpellEntry("ITEM", 5, "Nature Healing (Druid, Monk)"),       -- Multi-Strike (Nature, Healing)
-  
+
   -- Trinket: Thok's Acid-Grooved Tooth (Based on class and spec)
   [146137] = CreateMergeSpellEntry("ITEM", .5, "Physical Damage (Melee)"),           -- Cleave (Physical, Melee)
   [146157] = CreateMergeSpellEntry("ITEM", .5, "Holy Damage"),                       -- Cleave (Holy Dmg, ?????)
@@ -80,7 +80,7 @@ addon.merges = {
   [55050]  = CreateMergeSpellEntry("DEATHKNIGHT", .5),  -- Heart Strike                               (INSTANT)
   [49184]  = CreateMergeSpellEntry("DEATHKNIGHT", .5),  -- Howling Blast                              (INSTANT)
 
--- death knight (healing) 
+-- death knight (healing)
   [81280]  = CreateMergeSpellEntry("DEATHKNIGHT", .5),  -- Blood Burst                                (INSTANT)
   [119980] = CreateMergeSpellEntry("DEATHKNIGHT", 4),   -- Conversion
   [53365]  = CreateMergeSpellEntry("DEATHKNIGHT", 4),   -- Unholy Strength
@@ -139,7 +139,7 @@ addon.merges = {
   [12654]  = CreateMergeSpellEntry("MAGE"),             -- Ignite
   [114954] = CreateMergeSpellEntry("MAGE"),             -- Nether Tempest                             (Merged w/ Secondary Spell)
   [11366]  = CreateMergeSpellEntry("MAGE"),             -- Pyroblast
-  
+
 -- monk (damage)
   [128531] = CreateMergeSpellEntry("MONK", 4),          -- Blackout Kick (DoT)                        (Every 1s for 4s)
   [115181] = CreateMergeSpellEntry("MONK", .5),         -- Breath of Fire                             (INSTANT)
@@ -208,7 +208,7 @@ addon.merges = {
   [33619]  = CreateMergeSpellEntry("PRIEST", 3),        -- Reflective Shield
   [589]    = CreateMergeSpellEntry("PRIEST", 6),        -- Shadow Word: Pain
   [87532]  = CreateMergeSpellEntry("PRIEST"),           -- Shadowy Apparition
-  [34914]  = CreateMergeSpellEntry("PRIEST", 6),        -- Vampiric Touch 
+  [34914]  = CreateMergeSpellEntry("PRIEST", 6),        -- Vampiric Touch
 
 -- priest (healing)
   [47750]  = CreateMergeSpellEntry("PRIEST"),           -- Penance (Heal)
@@ -320,23 +320,23 @@ addon.merge2h = {
   -- Hunter (Damage)
   [118253] = 83077,    -- Serpent Sting (Tick)
   [120761] = 121414,   -- Glaive Toss
-  
+
   -- Mage (Damage)
   [44457]  = 44461,    -- Living Bomb (DOT)
   [114923] = 114954,   -- Nether Tempest (50% to random player)
-  
+
   -- Monk (Damage)
   [117418] = 113656,   -- Fists of Fury
   [125033] = 124098,   -- Zen Sphere: Detonate (Damage)
-  
+
   -- Monk (Healing)
   [126890] = 117895,   -- Eminence (Statue)
   [125953] = 115175,   -- Soothing Mist (Statue)
   [124101] = 124081,   -- Zen Sphere: Detonate (Heal)
-  
+
   -- Priest (Damage)
   [124469] = 49821,    -- Mind Sear
-  
+
   -- Rogue (Damage)
   [122233] = 121411,   -- Crimson Tempest (DoT)
   [2818]   = 113780,   -- Deadly Poison (DoT)
@@ -347,14 +347,14 @@ addon.merge2h = {
   [32176]  = 32175,    -- Stormstrike
   [115360] = 115357,   -- Stormblast
   [114093] = 114089,   -- Wind Lash (Ascendance)
-  
+
   -- Warlock (Damage)
   [131737] = 980,      -- Agony (Malefic Grasp)
   [131740] = 172,      -- Corruption (Malefic Grasp)
   [131736] = 30108,    -- Unstable Affliction (Malefic Grasp)
   [27285]  = 27243,    -- Seed of Corruption (Explosion)
   [87385]  = 27243,    -- Seed of Corruption (Explosion Soulburned)
-  
+
   -- Warrior
   [85384]  = 96103,    -- Raging Blow
   [44949]  = 1680,     -- Whirlwind (Offhand)

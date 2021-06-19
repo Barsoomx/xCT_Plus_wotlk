@@ -428,7 +428,7 @@ function x:UpdateComboPointOptions(force)
     for index, entry in pairs(x.db.profile.spells.combo[myClass][spec] or { }) do
       if not haveSpec then
         haveSpec = true
-        local mySpecName = select(2, GetSpecializationInfo(spec)) or "Tree " .. spec
+        local mySpecName = (select(2, GetTalentTabInfo(spec)) or "Tree ") .. spec
 
         comboSpells.args["title" .. tostring(spec)] = {
             order = offset,

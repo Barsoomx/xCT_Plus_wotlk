@@ -1,15 +1,15 @@
-	--[[   ____    ______      
+	--[[   ____    ______
       /\  _`\ /\__  _\   __
- __  _\ \ \/\_\/_/\ \/ /_\ \___ 
+ __  _\ \ \/\_\/_/\ \/ /_\ \___
 /\ \/'\\ \ \/_/_ \ \ \/\___  __\
 \/>  </ \ \ \L\ \ \ \ \/__/\_\_/
  /\_/\_\ \ \____/  \ \_\  \/_/
  \//\/_/  \/___/    \/_/
- 
+
  [=====================================]
  [  Author: Dandruff @ Whisperwind-US  ]
  [  xCT+ Version 3.x.x                 ]
- [  ©2012. All Rights Reserved.        ]
+ [  ï¿½2012. All Rights Reserved.        ]
  [====================================]]
 
 local ADDON_NAME, addon = ...
@@ -82,7 +82,7 @@ addon.options = {
       name = "Startup Message",
       get = function(info) return x.db.profile.showStartupText end,
       set = function(info, value) x.db.profile.showStartupText = value end,
-    },  
+    },
     hideConfig = {
       order = 12,
       type = 'toggle',
@@ -141,7 +141,7 @@ x.cvar_udpate = function()
   -- Always have Combat Text Enabled
   SetCVar("enableCombatText", 1)
   _G["SHOW_COMBAT_TEXT"] = "1"
-  
+
   -- We dont care about "combatTextFloatMode"
   -- _G["COMBAT_TEXT_FLOAT_MODE"] = "1"
 
@@ -153,7 +153,7 @@ x.cvar_udpate = function()
     SetCVar("fctLowManaHealth", 0)
     _G["COMBAT_TEXT_SHOW_LOW_HEALTH_MANA"] = "0"
   end
-  
+
   -- Check: fctAuras (General Option)
   if x.db.profile.frames.general.showBuffs or x.db.profile.frames.general.showDebuffs then
     SetCVar("fctAuras", 1)
@@ -164,7 +164,7 @@ x.cvar_udpate = function()
     _G["COMBAT_TEXT_SHOW_AURAS"] = "0"
     _G["COMBAT_TEXT_SHOW_AURA_FADE"] = "0"
   end
-  
+
   -- Check: fctCombatState (General Option)
   if x.db.profile.frames.general.showCombatState then
     SetCVar("fctCombatState", 1)
@@ -173,7 +173,7 @@ x.cvar_udpate = function()
     SetCVar("fctCombatState", 0)
     _G["COMBAT_TEXT_SHOW_COMBAT_STATE"] = "0"
   end
-  
+
   -- Check: fctDodgeParryMiss (Damage Option)
   if x.db.profile.frames.damage.showDodgeParryMiss then
     SetCVar("fctDodgeParryMiss", 1)
@@ -182,7 +182,7 @@ x.cvar_udpate = function()
     SetCVar("fctDodgeParryMiss", 0)
     _G["COMBAT_TEXT_SHOW_DODGE_PARRY_MISS"] = "0"
   end
-  
+
   -- Check: fctDamageReduction (Damage Option)
   if x.db.profile.frames.damage.showDamageReduction then
     SetCVar("fctDamageReduction", 1)
@@ -191,7 +191,7 @@ x.cvar_udpate = function()
     SetCVar("fctDamageReduction", 0)
     _G["COMBAT_TEXT_SHOW_RESISTANCES"] = "0"
   end
-  
+
   -- Check: fctRepChanges (General Option)
   if x.db.profile.frames.general.showRepChanges then
     SetCVar("fctRepChanges", 1)
@@ -200,7 +200,7 @@ x.cvar_udpate = function()
     SetCVar("fctRepChanges", 0)
     _G["COMBAT_TEXT_SHOW_REPUTATION"] = "0"
   end
-  
+
   -- Check: fctHonorGains (General Option)
   if x.db.profile.frames.damage.showHonorGains then
     SetCVar("fctHonorGains", 0)
@@ -209,7 +209,7 @@ x.cvar_udpate = function()
     SetCVar("fctHonorGains", 0)
     _G["COMBAT_TEXT_SHOW_HONOR_GAINED"] = "0"
   end
-  
+
   -- Check: fctReactives (Attach to Procs Frame)
   if x.db.profile.frames.procs.enabledFrame then
     SetCVar("fctReactives", 1)
@@ -218,7 +218,7 @@ x.cvar_udpate = function()
     SetCVar("fctReactives", 0)
     _G["COMBAT_TEXT_SHOW_REACTIVES"] = "0"
   end
-  
+
   -- Check: fctFriendlyHealers (Healing Option)
   if x.db.profile.frames.healing.showFriendlyHealers then
     SetCVar("fctFriendlyHealers", 1)
@@ -227,16 +227,16 @@ x.cvar_udpate = function()
     SetCVar("fctFriendlyHealers", 0)
     _G["COMBAT_TEXT_SHOW_FRIENDLY_NAMES"] = "0"
   end
-  
-  -- Check: CombatHealingAbsorbSelf (Healing Option)
-  if x.db.profile.frames.healing.enableSelfAbsorbs then
-    SetCVar("CombatHealingAbsorbSelf", 1)
-    _G["SHOW_COMBAT_HEALING_ABSORB_SELF"] = "1"
-  else
-    SetCVar("CombatHealingAbsorbSelf", 0)
-    _G["SHOW_COMBAT_HEALING_ABSORB_SELF"] = "0"
-  end
-  
+
+  -- -- Check: CombatHealing (Healing Option)
+  -- if x.db.profile.frames.healing.enableSelfAbsorbs then
+  --   SetCVar("CombatHealing", 1)
+  --   _G["SHOW_COMBAT_HEALING"] = "1"
+  -- else
+  --   SetCVar("CombatHealing", 0)
+  --   _G["SHOW_COMBAT_HEALING"] = "0"
+  -- end
+
   -- Check: fctComboPoints (COMBO Option)
   if x.player.class == "ROGUE" and x.db.profile.frames.class.enabledFrame then
     SetCVar("fctComboPoints", 1)
@@ -245,7 +245,7 @@ x.cvar_udpate = function()
     SetCVar("fctComboPoints", 0)
     _G["COMBAT_TEXT_SHOW_COMBO_POINTS"] = "0"
   end
-  
+
   -- Check: fctEnergyGains (Power Option)
   if x.db.profile.frames.power.showEnergyGains then
     SetCVar("fctEnergyGains", 1)
@@ -254,7 +254,7 @@ x.cvar_udpate = function()
     SetCVar("fctEnergyGains", 0)
     _G["COMBAT_TEXT_SHOW_ENERGIZE"] = "0"
   end
-  
+
   -- Check: fctPeriodicEnergyGains (Power Option)
   if x.db.profile.frames.power.showPeriodicEnergyGains then
     SetCVar("fctPeriodicEnergyGains", 1)
@@ -263,57 +263,57 @@ x.cvar_udpate = function()
     SetCVar("fctPeriodicEnergyGains", 0)
     _G["COMBAT_TEXT_SHOW_PERIODIC_ENERGIZE"] = "0"
   end
-  
+
   -- Floating Combat Text: Effects
   if x.db.profile.blizzardFCT.fctSpellMechanics then
     SetCVar("fctSpellMechanics", 1)
   else
     SetCVar("fctSpellMechanics", 0)
   end
-  
+
   -- Floating Combat Text: Effects (Others)
   if x.db.profile.blizzardFCT.fctSpellMechanicsOther then
     SetCVar("fctSpellMechanicsOther", 1)
   else
     SetCVar("fctSpellMechanicsOther", 0)
   end
-  
+
   -- Floating Combat Text: Outgoing Damage
   if x.db.profile.blizzardFCT.CombatDamage then
     SetCVar("CombatDamage", 1)
   else
     SetCVar("CombatDamage", 0)
   end
-  
+
   -- Floating Combat Text: Outgoing Dots and Hots
   if x.db.profile.blizzardFCT.CombatLogPeriodicSpells then
     SetCVar("CombatLogPeriodicSpells", 1)
   else
     SetCVar("CombatLogPeriodicSpells", 0)
   end
-  
+
   -- Floating Combat Text: Outgoing Pet Damage
   if x.db.profile.blizzardFCT.PetMeleeDamage then
     SetCVar("PetMeleeDamage", 1)
   else
     SetCVar("PetMeleeDamage", 0)
   end
-  
+
   -- Floating Combat Text: Outgoing Healing
   if x.db.profile.blizzardFCT.CombatHealing then
     SetCVar("CombatHealing", 1)
   else
     SetCVar("CombatHealing", 0)
   end
-  
-  -- Floating Combat Text: Outgoing Absorbs
-  if x.db.profile.blizzardFCT.CombatHealingAbsorbTarget then
-    SetCVar("CombatHealingAbsorbTarget", 1)
-  else
-    SetCVar("CombatHealingAbsorbTarget", 0)
-  end
-  
-  -- Floating Combat Text: Threat Changes
+
+  -- -- Floating Combat Text: Outgoing Absorbs
+  --   if x.db.profile.blizzardFCT.CombatHealingAbsorbTarget then
+  --     SetCVar("CombatHealingAbsorbTarget", 1)
+  --   else
+  --     SetCVar("CombatHealingAbsorbTarget", 0)
+  --   end
+
+    -- Floating Combat Text: Threat Changes
   if x.db.profile.blizzardFCT.CombatThreatChanges then
     COMBAT_THREAT_DECREASE_0, COMBAT_THREAT_DECREASE_1, COMBAT_THREAT_DECREASE_2 = XCT_CT_DEC_0, XCT_CT_DEC_1, XCT_CT_DEC_2
     COMBAT_THREAT_INCREASE_1, COMBAT_THREAT_INCREASE_3 = XCT_CT_INC_1, XCT_CT_INC_3
@@ -321,7 +321,7 @@ x.cvar_udpate = function()
     COMBAT_THREAT_DECREASE_0, COMBAT_THREAT_DECREASE_1, COMBAT_THREAT_DECREASE_2 = "", "", ""
     COMBAT_THREAT_INCREASE_1, COMBAT_THREAT_INCREASE_3 = "", ""
   end
-  
+
 end
 
 -- Generic Get/Set methods
@@ -428,11 +428,11 @@ local function GetBuffHistory()
   for i in pairs(buffHistory) do
     buffHistory[i] = nil
   end
-  
+
   for i in pairs(x.spellCache.buffs) do
     buffHistory[i] = x:GetSpellTextureFormatted(i, 16).." "..i
   end
-  
+
   return buffHistory
 end
 
@@ -440,11 +440,11 @@ local function GetDebuffHistory()
   for i in pairs(debuffHistory) do
     debuffHistory[i] = nil
   end
-  
+
   for i in pairs(x.spellCache.debuffs) do
     debuffHistory[i] = x:GetSpellTextureFormatted(i, 16).." "..i
   end
-  
+
   return debuffHistory
 end
 
@@ -452,12 +452,12 @@ local function GetSpellHistory()
   for i in pairs(spellHistory) do
     spellHistory[i] = nil
   end
-  
+
   for i in pairs(x.spellCache.spells) do
     local name = GetSpellInfo(i) or "Unknown Spell ID"
     spellHistory[tostring(i)] = x:GetSpellTextureFormatted(i, 16).." "..name.." (|cff798BDD"..i.."|r)"
   end
-  
+
   return spellHistory
 end
 
@@ -465,11 +465,11 @@ local function GetProcHistory()
   for i in pairs(procHistory) do
     procHistory[i] = nil
   end
-  
+
   for i in pairs(x.spellCache.procs) do
     procHistory[i] = x:GetSpellTextureFormatted(i, 16).." "..i
   end
-  
+
   return procHistory
 end
 
@@ -477,12 +477,12 @@ local function GetItemHistory()
   for i in pairs(itemHistory) do
     itemHistory[i] = nil
   end
-  
+
   for i in pairs(x.spellCache.items) do
 	local name, _, _, _, _, _, _, _, _, texture = GetItemInfo( i )
     itemHistory[i] = sformat("|T%s:%d:%d:0:0:64:64:5:59:5:59|t %s", texture, 16, 16, name)
   end
-  
+
   return itemHistory
 end
 
@@ -492,7 +492,7 @@ addon.options.args["spells"] = {
   type = 'group',
   order = 2,
   args = {
-    
+
     mergeOptions = {
       name = "Merge Options",
       type = 'group',
@@ -522,7 +522,7 @@ addon.options.args["spells"] = {
           name = "\n|cff798BDDMerge Incoming Healing|r:",
           fontSize = 'large',
         },
-      
+
         mergeHealing = {
           order = 11,
           type = 'toggle',
@@ -532,14 +532,14 @@ addon.options.args["spells"] = {
           set = set0_1,
           width = 'double',
         },
-        
+
         listSpacer2 = {
           type = "description",
           order = 20,
           name = "\n|cff798BDDMerge Multiple Dispells|r:",
           fontSize = 'large',
         },
-      
+
         mergeDispells = {
           order = 21,
           type = 'toggle',
@@ -549,14 +549,14 @@ addon.options.args["spells"] = {
           set = set0_1,
           width = 'double',
         },
-        
+
         listSpacer3 = {
           type = "description",
           order = 30,
           name = "\n|cff798BDDMerge Auto-Attacks|r:",
           fontSize = 'large',
         },
-      
+
         mergeSwings = {
           order = 31,
           type = 'toggle',
@@ -565,7 +565,7 @@ addon.options.args["spells"] = {
           get = get0_1,
           set = set0_1,
         },
-        
+
         mergeRanged = {
           order = 32,
           type = 'toggle',
@@ -574,14 +574,14 @@ addon.options.args["spells"] = {
           get = get0_1,
           set = set0_1,
         },
-        
+
         listSpacer4 = {
           type = "description",
           order = 40,
           name = "\n|cff798BDDMerge Critical Hits|r (Choose one):",
           fontSize = 'large',
         },
-        
+
         mergeDontMergeCriticals = {
           order = 41,
           type = 'toggle',
@@ -591,7 +591,7 @@ addon.options.args["spells"] = {
           set = setSpecialCriticalOptions,
           width = 'full',
         },
-        
+
         mergeCriticalsWithOutgoing = {
           order = 42,
           type = 'toggle',
@@ -601,7 +601,7 @@ addon.options.args["spells"] = {
           set = setSpecialCriticalOptions,
           width = 'full',
         },
-        
+
         mergeCriticalsByThemselves = {
           order = 43,
           type = 'toggle',
@@ -614,7 +614,7 @@ addon.options.args["spells"] = {
 
       },
     },
-    
+
     spellList = {
       name = "Class Specific Spells", --"List of Mergeable Spells |cff798BDD(Class Specific)|r",
       type = 'group',
@@ -627,9 +627,9 @@ addon.options.args["spells"] = {
           fontSize = "large",
           width = "double",
         },
-        
+
         --[[  TODO: Add Check all and uncheck all buttons ]]
-        
+
         mergeListDesc = {
           type = "description",
           order = 1,
@@ -638,7 +638,7 @@ addon.options.args["spells"] = {
         },
       },
     },
-    
+
     itemList = {
       name = "Items and Spells for All Classes",
       type = 'group',
@@ -673,7 +673,7 @@ addon.options.args["spellFilter"] = {
       fontSize = "medium",
       name = "",
     },
-    
+
     filterValues = {
       name = "Minimal Value Thresholds",
       type = 'group',
@@ -686,7 +686,7 @@ addon.options.args["spellFilter"] = {
           name = "|cff798BDDIncoming Player Power Threshold|r: (Mana, Rage, Energy, etc.)",
           fontSize = "large",
         },
-        
+
         filterPowerValue = {
           order = 1,
           type = 'input',
@@ -695,14 +695,14 @@ addon.options.args["spellFilter"] = {
           set = setNumber2,
           get = getNumber2,
         },
-      
+
         listSpacer1 = {
           type = "description",
           order = 10,
           name = "\n|cff798BDDOutgoing Damage and Healing Threshold|r:",
           fontSize = "large",
         },
-        
+
         filterOutgoingDamageValue = {
           order = 11,
           type = 'input',
@@ -711,7 +711,7 @@ addon.options.args["spellFilter"] = {
           set = setNumber2,
           get = getNumber2,
         },
-        
+
         filterOutgoingHealingValue = {
           order = 12,
           type = 'input',
@@ -720,14 +720,14 @@ addon.options.args["spellFilter"] = {
           set = setNumber2,
           get = getNumber2,
         },
-        
+
         listSpacer2 = {
           type = "description",
           order = 20,
           name = "\n|cff798BDDIncoming Damage and Healing Threshold|r:",
           fontSize = "large",
         },
-        
+
         filterIncomingDamageValue = {
           order = 21,
           type = 'input',
@@ -736,7 +736,7 @@ addon.options.args["spellFilter"] = {
           set = setNumber2,
           get = getNumber2,
         },
-        
+
         filterIncomingHealingValue = {
           order = 22,
           type = 'input',
@@ -746,14 +746,14 @@ addon.options.args["spellFilter"] = {
         },
       },
     },
-  
+
     spellFilter = {
       name = "Track Spell History",
       type = 'group',
       order = 11,
       guiInline = true,
       args = {
-    
+
         -- This is a feature option that I will enable when I get more time D:
         trackSpells = {
           order = 1,
@@ -771,8 +771,8 @@ addon.options.args["spellFilter"] = {
         },
       },
     },
-    
-    
+
+
     listBuffs = {
       name = "|cffFFFFFFFilter:|r |cff798BDDBuffs|r",
       type = 'group',
@@ -809,7 +809,7 @@ addon.options.args["spellFilter"] = {
           get = getCheckAdd,
           set = setCheckAdd,
         },
-        
+
         -- This is a feature option that I will enable when I get more time D:
         selectTracked = {
           order = 8,
@@ -823,7 +823,7 @@ addon.options.args["spellFilter"] = {
         },
       },
     },
-    
+
     listDebuffs = {
       name = "|cffFFFFFFFilter:|r |cff798BDDDebuffs|r",
       type = 'group',
@@ -860,7 +860,7 @@ addon.options.args["spellFilter"] = {
           get = getCheckAdd,
           set = setCheckAdd,
         },
-        
+
         -- This is a feature option that I will enable when I get more time D:
         selectTracked = {
           order = 4,
@@ -900,7 +900,7 @@ addon.options.args["spellFilter"] = {
           type = 'input',
           name = "Proc Name",
           desc = "The full, case-sensitive name of the |cff1AFF1AProc|r you want to filter.\n\nYou can add/remove |cff798BDDmultiple|r entries by separating them with a |cffFF8000semicolon|r (e.g. 'Shadowform;Power Word: Fortitude').",
-          set = setProc,
+          set = setSpell,
           get = noop,
         },
         checkAdd = {
@@ -911,7 +911,7 @@ addon.options.args["spellFilter"] = {
           get = getCheckAdd,
           set = setCheckAdd,
         },
-        
+
         -- This is a feature option that I will enable when I get more time D:
         selectTracked = {
           order = 8,
@@ -925,7 +925,7 @@ addon.options.args["spellFilter"] = {
         },
       },
     },
-    
+
     listSpells = {
       name = "|cffFFFFFFFilter:|r |cff798BDDOutgoing Spells|r",
       type = 'group',
@@ -962,7 +962,7 @@ addon.options.args["spellFilter"] = {
           get = getCheckAdd,
           set = setCheckAdd,
         },
-        
+
         -- This is a feature option that I will enable when I get more time D:
         selectTracked = {
           order = 4,
@@ -976,7 +976,7 @@ addon.options.args["spellFilter"] = {
         },
       },
     },
-    
+
 	listItems = {
       name = "|cffFFFFFFFilter:|r |cff798BDDItems (Plus)|r",
       type = 'group',
@@ -1013,7 +1013,7 @@ addon.options.args["spellFilter"] = {
           get = getCheckAdd,
           set = setCheckAdd,
         },
-        
+
         -- This is a feature option that I will enable when I get more time D:
         selectTracked = {
           order = 4,
@@ -1027,8 +1027,8 @@ addon.options.args["spellFilter"] = {
         },
       },
     },
-	
-	
+
+
   },
 }
 
@@ -1121,7 +1121,7 @@ addon.options.args["FloatingCombatText"] = {
           get = get0,
           set = set0_update,
         },
-        
+
         CombatLogPeriodicSpells = {
           order = 3,
           type = 'toggle',
@@ -1131,7 +1131,7 @@ addon.options.args["FloatingCombatText"] = {
           set = set0_update,
           disabled = function(info) return not x.db.profile.blizzardFCT.CombatDamage end,
         },
-        
+
         PetMeleeDamage = {
           order = 4,
           type = 'toggle',
@@ -1139,9 +1139,9 @@ addon.options.args["FloatingCombatText"] = {
           desc = "Enable this option if you want your pet's melee damage as Floating Combat Text.",
           get = get0,
           set = set0_update,
-          disabled = function(info) return not x.db.profile.blizzardFCT.CombatDamage end, 
+          disabled = function(info) return not x.db.profile.blizzardFCT.CombatDamage end,
         },
-        
+
         CombatHealing = {
           order = 5,
           type = 'toggle',
@@ -1150,16 +1150,15 @@ addon.options.args["FloatingCombatText"] = {
           get = get0,
           set = set0_update,
         },
-        
-        CombatHealingAbsorbTarget = {
-          order = 6,
-          type = 'toggle',
-          name = "Show Absorbs",
-          desc = "Enable this option if you want your aborbs as Floating Combat Text.",
-          get = get0,
-          set = set0_update,
-        },
-        
+        -- CombatHealingAbsorbTarget = {
+        --   order = 6,
+        --   type = 'toggle',
+        --   name = "Show Absorbs",
+        --   desc = "Enable this option if you want your aborbs as Floating Combat Text.",
+        --   get = get0,
+        --   set = set0_update,
+        -- },
+
         CombatThreatChanges = {
           order = 7,
           type = 'toggle',
@@ -1168,7 +1167,7 @@ addon.options.args["FloatingCombatText"] = {
           get = get0,
           set = set0_update,
         },
-        
+
         -- Floating Combat Text Effects
         fctSpellMechanics = {
           order = 8,
@@ -1178,7 +1177,7 @@ addon.options.args["FloatingCombatText"] = {
           get = get0,
           set = set0_update,
         },
-        
+
         fctSpellMechanicsOther = {
           order = 9,
           type = 'toggle',
@@ -1186,7 +1185,7 @@ addon.options.args["FloatingCombatText"] = {
           desc = "Enable this option if you want to see other player's snares and roots too.",
           get = get0,
           set = set0_update,
-          disabled = function(info) return not x.db.profile.blizzardFCT.fctSpellMechanics end, 
+          disabled = function(info) return not x.db.profile.blizzardFCT.fctSpellMechanics end,
         },
 
         listSpacer1 = {
@@ -1195,7 +1194,7 @@ addon.options.args["FloatingCombatText"] = {
           name = "\n\n|cff798BDDFloating Combat Text Font|r:",
           fontSize = 'large',
         },
-        
+
         enabled = {
           order = 11,
           type = 'toggle',
@@ -1203,7 +1202,7 @@ addon.options.args["FloatingCombatText"] = {
           get = get0,
           set = set0_update,
         },
-        
+
         font = {
           type = 'select', dialogControl = 'LSM30_Font',
           order = 12,
@@ -1214,7 +1213,7 @@ addon.options.args["FloatingCombatText"] = {
           set = function(info, value)
             x.db.profile.blizzardFCT.font = value
             x.db.profile.blizzardFCT.fontName = LSM:Fetch("font", value)
-            
+
             --x:UpdateFrames()
             --x.cvar_udpate()
           end,
@@ -1230,7 +1229,7 @@ addon.options.args["Frames"] = {
   type = 'group',
   order = 0,
   args = {
-    
+
 
     frameSettings = {
       name = "Frame Settings ",
@@ -1238,7 +1237,7 @@ addon.options.args["Frames"] = {
       order = 1,
       guiInline = true,
       args = {
-        
+
         listSpacer0 = {
           type = "description",
           order = 1,
@@ -1254,7 +1253,7 @@ addon.options.args["Frames"] = {
           get = get0,
           set = set0,
         },
-        
+
         showPositions = {
           order = 3,
           type = 'toggle',
@@ -1290,7 +1289,7 @@ addon.options.args["Frames"] = {
           get = get0,
           set = set0_update,
         },
-        
+
         listSpacer2 = {
           type = "description",
           order = 20,
@@ -1402,8 +1401,8 @@ addon.options.args["Frames"] = {
           order = 0,
           name = "The following settings are marked as experimental. They should all work, but they might not be very useful. Expect chanrges or updates to these in the near future.\n\nClick |cffFFFF00Set All|r to apply setting to all |cffFF0000x|r|cffFFFF00CT|r|cffFF0000+|r frames.\n",
         },
-        
-        
+
+
         font = {
           type = 'select', dialogControl = 'LSM30_Font',
           order = 1,
@@ -1413,7 +1412,7 @@ addon.options.args["Frames"] = {
           get = function(info) return miscFont end,
           set = function(info, value) miscFont = value end,
         },
-        
+
         applyFont = {
           type = 'execute',
           order = 2,
@@ -1428,13 +1427,13 @@ addon.options.args["Frames"] = {
             end
           end,
         },
-        
+
         spacer1 = {
           type = 'description',
           order = 3,
           name = "",
         },
-        
+
         fontOutline = {
           type = 'select',
           order = 4,
@@ -1452,7 +1451,7 @@ addon.options.args["Frames"] = {
           get = function(info) return miscFontOutline end,
           set = function(info, value) miscFontOutline = value end,
         },
-        
+
         applyFontOutline = {
           type = 'execute',
           order = 5,
@@ -1467,13 +1466,13 @@ addon.options.args["Frames"] = {
             end
           end,
         },
-        
+
         spacer2 = {
           type = 'description',
           order = 6,
           name = "",
         },
-        
+
         customFade = {
           type = 'toggle',
           order = 7,
@@ -1482,7 +1481,7 @@ addon.options.args["Frames"] = {
           get = function(info) return miscEnableCustomFade end,
           set = function(info, value) miscEnableCustomFade = value end,
         },
-        
+
         applyCustomFade = {
           type = 'execute',
           order = 8,
@@ -1499,7 +1498,7 @@ addon.options.args["Frames"] = {
             end
           end,
         },
-        
+
       },
     },
 
@@ -1829,7 +1828,7 @@ addon.options.args["Frames"] = {
 
       },
     },
-    
+
     outgoing = {
       name = "|cffFFFFFFOutgoing|r",
       type = 'group',
@@ -2167,7 +2166,7 @@ addon.options.args["Frames"] = {
 
       },
     },
-    
+
     critical = {
       name = "|cffFFFFFFOutgoing|r |cff798BDD(Criticals)|r",
       type = 'group',
@@ -2482,7 +2481,7 @@ addon.options.args["Frames"] = {
         },
       },
     },
-    
+
     damage = {
       name = "|cffFFFFFFIncoming|r |cff798BDD(Damage)|r",
       type = 'group',
@@ -2745,7 +2744,7 @@ addon.options.args["Frames"] = {
         },
       },
     },
-    
+
     healing = {
       name = "|cffFFFFFFIncoming|r |cff798BDD(Healing)|r",
       type = 'group',
@@ -3020,19 +3019,11 @@ addon.options.args["Frames"] = {
               get = get2,
               set = set2,
             },
-            enableSelfAbsorbs = {
-              order = 5,
-              type = 'toggle',
-              name = "Show Absorbs",
-              desc = "Shows incoming absorbs.",
-              get = get2,
-              set = set2,
-            },
           },
         },
       },
     },
-    
+
     class = {
       name = "|cffFFFFFFClass Combo Points|r",
       type = 'group',
@@ -3169,7 +3160,7 @@ addon.options.args["Frames"] = {
 
       },
     },
-    
+
     power = {
       name = "|cffFFFFFFClass Power|r",
       type = 'group',
@@ -3434,7 +3425,7 @@ addon.options.args["Frames"] = {
         },
       },
     },
-    
+
     procs = {
       name = "|cffFFFFFFSpecial Effects|r |cff798BDD(Procs)|r",
       type = 'group',
@@ -3685,7 +3676,7 @@ addon.options.args["Frames"] = {
 
       },
     },
-    
+
     loot = {
       name = "|cffFFFFFFLoot & Money|r",
       type = 'group',
