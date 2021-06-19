@@ -260,7 +260,7 @@ local function GetCustomSpellColorFromIndex(index)
 	end
 end
 
-
+BATTLE_PET_CAGE_ITEM_NAME = "Caged %s"
 --[=====================================================[
  String Formatters
 --]=====================================================]

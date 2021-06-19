@@ -1,11 +1,11 @@
---[[   ____    ______      
+--[[   ____    ______
       /\  _`\ /\__  _\   __
- __  _\ \ \/\_\/_/\ \/ /_\ \___ 
+ __  _\ \ \/\_\/_/\ \/ /_\ \___
 /\ \/'\\ \ \/_/_ \ \ \/\___  __\
 \/>  </ \ \ \L\ \ \ \ \/__/\_\_/
  /\_/\_\ \ \____/  \ \_\  \/_/
  \//\/_/  \/___/    \/_/
- 
+
  [=====================================]
  [  Author: Dandruff @ Whisperwind-US  ]
  [  xCT+ Version 3.x.x                 ]
@@ -43,7 +43,7 @@ end
 -- Local Handle to the Engine
 local x = addon.engine
 
--- Profile Updated, need to refresh important stuff 
+-- Profile Updated, need to refresh important stuff
 local function RefreshConfig()
   -- Clean up the Profile
   x:CompatibilityLogic()
@@ -51,7 +51,7 @@ local function RefreshConfig()
   x:UpdateFrames()
   x:UpdateSpamSpells()
   x:UpdateItemTypes()
-    
+
   collectgarbage()
 end
 
@@ -72,26 +72,26 @@ function x:OnInitialize()
   self.db.RegisterCallback(self, 'OnProfileChanged', RefreshConfig)
   self.db.RegisterCallback(self, 'OnProfileCopied', RefreshConfig)
   self.db.RegisterCallback(self, 'OnProfileReset', RefreshConfig)
-  
+
   -- Clean up the Profile
   x:CompatibilityLogic()
 
   -- Perform xCT+ Update
   x:UpdatePlayer()
-  
+
   -- Delay updating frames until all other addons are loaded!
   --x:UpdateFrames()
-  
+
   x:UpdateBlizzardFCT()
   x:UpdateCombatTextEvents(true)
   x:UpdateSpamSpells()
   x:UpdateItemTypes()
   x:UpdateAuraSpellFilter()
   x.GenerateColorOptions()
-  
+
   -- Update combat text engine CVars
   x.cvar_udpate()
-  
+
   -- Everything got Initialized, show Startup Text
   if self.db.profile.showStartupText then
     print("Loaded |cffFF0000x|r|cffFFFF00CT|r|cffFF0000+|r. To configure, type: |cffFF0000/xct|r")
@@ -124,39 +124,39 @@ end
 
 local getSpellDescription
 do
-	local Descriptions, description = { }, nil
-	local tooltip = CreateFrame('GameTooltip')
-	tooltip:SetOwner(WorldFrame, "ANCHOR_NONE")
-	
-	-- Add FontStrings to the tooltip
-	local LeftStrings, temporaryRight = {}, nil
-	for i = 1, 5 do
-		LeftStrings[i] = tooltip:CreateFontString()
-		temporaryRight = tooltip:CreateFontString()
-		LeftStrings[i]:SetFontObject(GameFontNormal)
-		temporaryRight:SetFontObject(GameFontNormal)
-		tooltip:AddFontStrings(LeftStrings[i], temporaryRight)
-	end
-	
-	function getSpellDescription(spellID)
-		if Descriptions[spellID] then
-			return Descriptions[spellID]
-		end
-		
-		tooltip:SetSpellByID(spellID)
-		
-		description = ""
-		if LeftStrings[tooltip:NumLines()] then
-			description = LeftStrings[ tooltip:NumLines() ]:GetText()
-		end
-		
-		if description == "" then
-			description = "No Description"
-		end
-		
-		Descriptions[spellID] = description
-		return description
-	end
+  local Descriptions, description = { }, nil
+  local tooltip = CreateFrame('GameTooltip')
+  tooltip:SetOwner(WorldFrame, "ANCHOR_NONE")
+
+  -- Add FontStrings to the tooltip
+  local LeftStrings, temporaryRight = {}, nil
+  for i = 1, 5 do
+    LeftStrings[i] = tooltip:CreateFontString()
+    temporaryRight = tooltip:CreateFontString()
+    LeftStrings[i]:SetFontObject(GameFontNormal)
+    temporaryRight:SetFontObject(GameFontNormal)
+    tooltip:AddFontStrings(LeftStrings[i], temporaryRight)
+  end
+
+  function getSpellDescription(spellID)
+    if Descriptions[spellID] then
+      return Descriptions[spellID]
+    end
+
+    tooltip:SetSpellByID(spellID)
+
+    description = ""
+    if LeftStrings[tooltip:NumLines()] then
+      description = LeftStrings[ tooltip:NumLines() ]:GetText()
+    end
+
+    if description == "" then
+      description = "No Description"
+    end
+
+    Descriptions[spellID] = description
+    return description
+  end
 end
 
 -- Spammy Spell Get/Set Functions
@@ -181,26 +181,26 @@ function x:UpdateSpamSpells()
 
   local spells = addon.options.args.spells.args.spellList.args
   local items = addon.options.args.spells.args.itemList.args
-  
+
   for spellID, entry in pairs(self.db.profile.spells.merge) do
     if entry.class == x.player.class or entry.class == "ALL" or entry.class == "ITEM" then
       local name = GetSpellInfo(spellID)
       if name then
         local spellDesc = getSpellDescription(spellID) or "No Description"
         local desc = ""
-        
+
         if entry.desc then
           desc = "|cff9F3ED5" .. entry.desc .. "|r\n\n"
         end
-        
+
         desc = desc .. spellDesc .. "\n\n|cffFF0000ID|r |cff798BDD" .. spellID .. "|r"
-        
+
         if entry.interval <= 0.5 then
-          desc = desc .. "\n|cffFF0000Interval|r Instant" 
+          desc = desc .. "\n|cffFF0000Interval|r Instant"
         else
           desc = desc .. "\n|cffFF0000Interval|r Merge every |cffFFFF00" .. tostring(entry.interval) .. "|r seconds"
         end
-        
+
         if entry.class == x.player.class then
           spells[tostring(spellID)] = {
             order = 3,
@@ -247,7 +247,7 @@ function x:UpdateItemTypes()
   end
 
   local itemTypes = { GetAuctionItemClasses() }
-  
+
   local allTypes = {
     order = 100,
     name = "|cffFFFFFFFilter:|r |cff798BDDLoot|r",
@@ -261,14 +261,14 @@ function x:UpdateItemTypes()
         },
     },
   }
-  
+
   for i, itype in ipairs(itemTypes) do
     local subtypes = { GetAuctionItemSubClasses(i) }
-    
+
     if self.db.profile.spells.items[itype] == nil then
       self.db.profile.spells.items[itype] = { }
     end
-    
+
     -- Page for the MAIN ITEM GROUP
     local group = {
       order = i,
@@ -286,7 +286,7 @@ function x:UpdateItemTypes()
         name = "",
         width = "full",
       }
-      
+
       -- Button to DISABLE all
       group.args['disableAll'] = {
         order = 101,
@@ -295,7 +295,7 @@ function x:UpdateItemTypes()
         --width = "half",
         func = ItemToggleAll,
       }
-      
+
       -- Button to ENABLE all
       group.args['enableAll'] = {
         order = 102,
@@ -309,7 +309,7 @@ function x:UpdateItemTypes()
       if first or self.db.profile.spells.items[itype][itype] == nil then
         self.db.profile.spells.items[itype][itype] = false
       end
-      
+
       group.args[itype] = {
         order = 1,
         type = 'toggle',
@@ -324,7 +324,7 @@ function x:UpdateItemTypes()
       if first or self.db.profile.spells.items[itype][subtype] == nil then
         self.db.profile.spells.items[itype][subtype] = false
       end
-    
+
       group.args[subtype] = {
         order = j,
         type = 'toggle',
@@ -333,7 +333,7 @@ function x:UpdateItemTypes()
         set = setIF_1, --function(info, value) self.db.profile.spells.items[itype][subtype] = value end,
       }
     end
-    
+
     allTypes.args[itype] = group
   end
 
@@ -354,7 +354,7 @@ local function getCP_2(info)
 end
 local function setCP_2(info, value)
   local spec, index = string_match(info[#info], "(%d+),(.+)")
-  
+
   if value == true then
     for key, entry in pairs(x.db.profile.spells.combo[x.player.class][tonumber(spec)]) do
       if type(entry) == "table" then
@@ -364,13 +364,13 @@ local function setCP_2(info, value)
       end
     end
   end
-  
+
   if tonumber(index) then   -- it is a spell ID
     x.db.profile.spells.combo[x.player.class][tonumber(spec)][tonumber(index)].enabled = value
   else                      -- it is a unit's power
     x.db.profile.spells.combo[x.player.class][tonumber(spec)][index] = value
   end
-  
+
   -- Update tracker
   x:UpdateComboTracker()
 end
@@ -379,7 +379,7 @@ end
 function x:UpdateComboPointOptions(force)
   if x.LOADED_COMBO_POINTS_OPTIONS and not force then return end
   local myClass, offset = x.player.class, 2
-  
+
   local comboSpells = {
     order = 100,
     name = "Special Tweaks",
@@ -399,7 +399,7 @@ function x:UpdateComboPointOptions(force)
       },
     },
   }
-  
+
   -- Add "All Specializations" Entries
   for name in pairs(x.db.profile.spells.combo[myClass]) do
     if not tonumber(name) then
@@ -421,7 +421,7 @@ function x:UpdateComboPointOptions(force)
       offset = offset + 1
     end
   end
-  
+
   -- Add the each spec
   for spec in ipairs(x.db.profile.spells.combo[myClass]) do
     local haveSpec = false
@@ -429,7 +429,7 @@ function x:UpdateComboPointOptions(force)
       if not haveSpec then
         haveSpec = true
         local mySpecName = select(2, GetSpecializationInfo(spec)) or "Tree " .. spec
-        
+
         comboSpells.args["title" .. tostring(spec)] = {
             order = offset,
             type = 'header',
@@ -438,7 +438,7 @@ function x:UpdateComboPointOptions(force)
           }
         offset = offset + 1
       end
-    
+
       if tonumber(index) then
         -- Class Combo Points ( UNIT_AURA Tracking)
         comboSpells.args[tostring(spec) .. "," .. tostring(index)] = {
@@ -460,22 +460,22 @@ function x:UpdateComboPointOptions(force)
           set = setCP_2,
         }
       end
-      
+
       offset = offset + 1
     end
   end
-  
+
   addon.options.args["Frames"].args["class"].args["tracker"] = comboSpells
-  
+
   x.LOADED_COMBO_POINTS_OPTIONS = true
-  
+
   x:UpdateComboTracker()
 end
 
 function x:UpdateComboTracker()
   local myClass, mySpec = x.player.class, x.player.spec
   x.TrackingEntry = nil
-  
+
   if not mySpec or mySpec < 1 then return end  -- under Level 10 probably or not spec'd, I don't know what to do :P
 
   for i, entry in pairs(x.db.profile.spells.combo[myClass][mySpec]) do
@@ -483,7 +483,7 @@ function x:UpdateComboTracker()
       x.TrackingEntry = entry
     end
   end
-  
+
   x:QuickClassFrameUpdate()
 end
 
@@ -494,7 +494,7 @@ local function setSF(info, value) x.db.profile.spellFilter[info[#info-2]][info[#
 -- Update the Buff, Debuff and Spell filter list
 function x:UpdateAuraSpellFilter(specific)
   local i = 10
-  
+
   if not specific or specific == "buffs" then
     -- Redo all the list
     addon.options.args.spellFilter.args.listBuffs.args.list = {
@@ -504,10 +504,10 @@ function x:UpdateAuraSpellFilter(specific)
       order = 11,
       args = { },
     }
-  
+
     local buffs = addon.options.args.spellFilter.args.listBuffs.args.list.args
     local updated = false
-    
+
     -- Update buffs
     for name in pairs(x.db.profile.spellFilter.listBuffs) do
       updated = true
@@ -519,7 +519,7 @@ function x:UpdateAuraSpellFilter(specific)
         set = setSF,
       }
     end
-    
+
     if not updated then
       buffs["noSpells"] = {
         order = 1,
@@ -528,9 +528,9 @@ function x:UpdateAuraSpellFilter(specific)
       }
     end
   end
-  
+
   i = 10
-  
+
   -- Update debuffs
   if not specific or specific == "debuffs" then
     addon.options.args.spellFilter.args.listDebuffs.args.list = {
@@ -540,10 +540,10 @@ function x:UpdateAuraSpellFilter(specific)
       order = 11,
       args = { },
     }
-  
+
     local debuffs = addon.options.args.spellFilter.args.listDebuffs.args.list.args
     local updated = false
-    
+
     for name in pairs(x.db.profile.spellFilter.listDebuffs) do
       updated = true
       debuffs[name] = {
@@ -554,7 +554,7 @@ function x:UpdateAuraSpellFilter(specific)
         set = setSF,
       }
     end
-    
+
     if not updated then
       debuffs["noSpells"] = {
         order = 1,
@@ -565,7 +565,7 @@ function x:UpdateAuraSpellFilter(specific)
   end
 
   i = 10
-  
+
   -- Update procs
   if not specific or specific == "procs" then
     addon.options.args.spellFilter.args.listProcs.args.list = {
@@ -575,10 +575,10 @@ function x:UpdateAuraSpellFilter(specific)
       order = 11,
       args = { },
     }
-  
+
     local procs = addon.options.args.spellFilter.args.listProcs.args.list.args
     local updated = false
-    
+
     for name in pairs(x.db.profile.spellFilter.listProcs) do
       updated = true
       procs[name] = {
@@ -598,9 +598,9 @@ function x:UpdateAuraSpellFilter(specific)
       }
     end
   end
-  
+
   i = 10
-  
+
   -- Update spells
   if not specific or specific == "spells" then
     addon.options.args.spellFilter.args.listSpells.args.list = {
@@ -610,13 +610,13 @@ function x:UpdateAuraSpellFilter(specific)
       order = 11,
       args = { },
     }
-  
+
     local spells = addon.options.args.spellFilter.args.listSpells.args.list.args
     local updated = false
-    
+
     for id in pairs(x.db.profile.spellFilter.listSpells) do
       local spellID = tonumber(string_match(id, "%d+"))
-    
+
       updated = true
       spells[id] = {
         order = i,
@@ -627,7 +627,7 @@ function x:UpdateAuraSpellFilter(specific)
         set = setSF,
       }
     end
-    
+
     if not updated then
       spells["noSpells"] = {
         order = 1,
@@ -636,9 +636,9 @@ function x:UpdateAuraSpellFilter(specific)
       }
     end
   end
-  
+
   i = 10
-  
+
   -- Update spells
   if not specific or specific == "items" then
     addon.options.args.spellFilter.args.listItems.args.list = {
@@ -648,17 +648,17 @@ function x:UpdateAuraSpellFilter(specific)
       order = 11,
       args = { },
     }
-  
+
     local spells = addon.options.args.spellFilter.args.listItems.args.list.args
     local updated = false
-    
+
     for id in pairs(x.db.profile.spellFilter.listItems) do
       local spellID = tonumber(string_match(id, "%d+"))
-	  
-	  local name, _, _, _, _, _, _, _, _, texture = GetItemInfo( spellID )
-	  
-	  name = name or "Unknown Item"
-	  
+
+    local name, _, _, _, _, _, _, _, _, texture = GetItemInfo( spellID )
+
+    name = name or "Unknown Item"
+
       updated = true
       spells[id] = {
         order = i,
@@ -669,7 +669,7 @@ function x:UpdateAuraSpellFilter(specific)
         set = setSF,
       }
     end
-    
+
     if not updated then
       spells["noSpells"] = {
         order = 1,
@@ -678,7 +678,7 @@ function x:UpdateAuraSpellFilter(specific)
       }
     end
   end
-  
+
 end
 
 -- Add and remove Buffs, debuffs, and spells from the filter
@@ -1006,18 +1006,18 @@ local lastConfigState, shownWarning = false, false
 function x:CombatStateChanged()
   if x.db.profile.hideConfig then
     if self.inCombat then
-	  if x.myContainer then
+    if x.myContainer then
         if x.myContainer:IsShown( ) then
           lastConfigState = true
-		  x.myContainer:Hide()
-		end
+      x.myContainer:Hide()
+    end
       end
     else
       if lastConfigState then
         ACD:Open(AddonName, x.myContainer)
       end
       lastConfigState = false
-	  shownWarning = false
+    shownWarning = false
     end
   end
 end
@@ -1052,16 +1052,16 @@ function x:OpenxCTCommand(input)
       StaticPopup_Hide("XCT_PLUS_CONFIGURING")
     else
       x.ToggleConfigMode()
-      
+
       print("|cffFF0000x|r|cffFFFF00CT+|r  You are now free to move about the cabin.")
       print("      |cffFF0000/xct lock|r      - Saves your frames.")
       print("      |cffFF0000/xct cancel|r  - Cancels all your recent frame movements.")
     end
-    
+
     -- return before you can do anything else
     return
   end
-  
+
   if string_match(string_lower(input),'cancel') then
     if x.configuring then
       x:UpdateFrames();
@@ -1072,14 +1072,14 @@ function x:OpenxCTCommand(input)
     end
     return
   end
-  
+
   if string_lower(input) == 'help' then
     print("|cffFF0000x|r|cffFFFF00CT+|r  Commands:")
     print("      |cffFF0000/xct lock|r - Locks and unlocks the frame movers.")
     print("      |cffFF0000/xct test|r - Attempts to emulate combat.")
     return
   end
-  
+
   if string_lower(input) == 'test' then
     x.ToggleTestMode(true)
     return
@@ -1087,22 +1087,22 @@ function x:OpenxCTCommand(input)
 
   if string_match(string_lower(input), 'track %w+') then
     local unit = string_match(string_lower(input), '%s(%w+)')
-    
+
     local name = UnitName(unit)
-    
+
     if not name then
       x.player.unit = ""
     else
       x.player.unit = "custom"
       CombatTextSetActiveUnit(unit)
     end
-    
+
     x:UpdatePlayer()
     print("|cffFF0000x|r|cffFFFF00CT+|r Tracking Unit:", name or "default")
-    
+
     return
   end
-  
+
   if x.inCombat and x.db.profile.hideConfig then
     if not shownWarning then
       print("|cffFF0000x|r|cffFFFF00CT+|r will open the |cff798BDDConfiguration Tool|r after combat.")
@@ -1155,7 +1155,7 @@ local function HideConfigTool_OnUpdate( self, e )
 end
 
 function x:HideConfigTool( wait )
-  
+
   -- If the item that is call needs the frame for another unit of time
   if wait then
     if not x.waiterHideConfig then
@@ -1178,14 +1178,14 @@ end
 x:RegisterChatCommand('track', 'TrackxCTCommand')
 function x:TrackxCTCommand(input)
   local name = UnitName("target")
-    
+
   if not name then
     x.player.unit = ""
   else
     x.player.unit = "custom"
     CombatTextSetActiveUnit("target")
   end
-  
+
   x:UpdatePlayer()
   print("|cffFF0000x|r|cffFFFF00CT+|r Tracking Unit:", name or "default")
 end

@@ -9,7 +9,7 @@
  [=====================================]
  [  Author: Dandruff @ Whisperwind-US  ]
  [  xCT+ Version 3.x.x                 ]
- [  ©2012. All Rights Reserved.        ]
+ [  ï¿½2012. All Rights Reserved.        ]
  [====================================]]
 
 local ADDON_NAME, addon = ...
@@ -61,7 +61,6 @@ InterfaceOptionsCombatTextPanelEnergyGains:Hide()
 InterfaceOptionsCombatTextPanelPeriodicEnergyGains:Hide()
 InterfaceOptionsCombatTextPanelHonorGains:Hide()
 InterfaceOptionsCombatTextPanelAuras:Hide()
-InterfaceOptionsCombatTextPanelHealingAbsorbSelf:Hide()
 
 -- Direction does NOT work with xCT+ at all
 InterfaceOptionsCombatTextPanelFCTDropDown:Hide()
@@ -71,7 +70,6 @@ InterfaceOptionsCombatTextPanelTargetDamage:Hide()
 InterfaceOptionsCombatTextPanelPeriodicDamage:Hide()
 InterfaceOptionsCombatTextPanelPetDamage:Hide()
 InterfaceOptionsCombatTextPanelHealing:Hide()
-InterfaceOptionsCombatTextPanelHealingAbsorbTarget:Hide()
 
 function x:UpdateBlizzardFCT()
   if self.db.profile.blizzardFCT.enabled then
