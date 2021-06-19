@@ -17,8 +17,8 @@ exclude_files = {
 	"./.github",
 	"./.lua",
 	"./.luarocks",
-	"**/Libs/**/*.lua",
-	"**/Libs/**/**/*.lua",
+	"**/libs/**/*.lua",
+	"**/libs/**/**/*.lua",
 	".luacheckrc"
 }
 
