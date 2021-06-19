@@ -1,4 +1,8 @@
+[![Game Version](https://img.shields.io/badge/wow-3.3.5-blue.svg)](https://github.com/Barsoomx/xCT_Plus_wotlk/tree/master)
+[![Discord](https://discordapp.com/api/guilds/598993375479463946/widget.png?style=shield)](https://discord.gg/uMbjr87)
 # xCT+ 3.7.1 backport 
+
+by [Barsoom](https://forum.wowcircle.net/member.php?u=261041)
 
 xCT+ is immensely based off the add-on xCT by braindump (aka Affli). It strives to be as minimalistic as possible while maintaining ease of use. That is why, introduced in version 3, you can now configure all settings while in-game.
 
