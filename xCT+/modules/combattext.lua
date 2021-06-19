@@ -351,7 +351,8 @@ function x:GetSpellTextureFormatted(spellID, iconSize)
   if spellID == 0 then
     message = sformat(format_spell_icon, PET_ATTACK_TEXTURE, iconSize, iconSize)
   else
-    local icon = GetSpellTexture(spellID)
+    local spellName = GetSpellInfo(spellID)
+    local icon = GetSpellTexture(spellName)
     if icon then
       message = sformat(format_spell_icon, icon, iconSize, iconSize)
     else
@@ -1006,8 +1007,8 @@ x.events = {
 x.outgoing_events = {
   ["SPELL_PERIODIC_HEAL"] = function(...)
       if not ShowHealing() or not ShowHots() then return end
-      print(...)
-      local spellID, spellName, spellSchool, amount, overhealing, absorbed, critical = select(12, ...)
+
+      local spellID, spellName, spellSchool, amount, overhealing, absorbed, critical = select(9, ...)
       local outputFrame, message, outputColor = "outgoing", amount, "healingOutPeriodic"
       local merged = false
 
@@ -1071,7 +1072,7 @@ x.outgoing_events = {
   ["SPELL_HEAL"] = function(...)
       if not ShowHealing() then return end
 
-      local spellID, spellName, spellSchool, amount, overhealing, absorbed, critical = select(12, ...)
+      local spellID, spellName, spellSchool, amount, overhealing, absorbed, critical = select(9, ...)
       local outputFrame, message, outputColor = "outgoing", amount, "healingOut"
       local merged = false
 
@@ -1137,8 +1138,8 @@ x.outgoing_events = {
   ["SWING_DAMAGE"] = function(...)
       if not ShowDamage() then return end
 
-      local _, _, _, sourceGUID, _, sourceFlags, _, _, _, _, _,  amount, _, _, _, _, _, critical = ...
-      print(...)
+      local _, _, sourceGUID, _, sourceFlags, _, _, _, amount, _, _, _, _, _, critical = ...
+
       local outputFrame, message, outputColor = "outgoing", x:Abbreviate(amount, "outgoing"), "genericDamage"
       local merged, critMessage = false, nil
 
@@ -1192,7 +1193,7 @@ x.outgoing_events = {
   ["RANGE_DAMAGE"] = function(...)
       if not ShowDamage() then return end
 
-      local _, _, _, sourceGUID, _, sourceFlags, _, _, _, _, _,  spellID, _, _, amount, _, _, _, _, _, critical = ...
+      local _, _, sourceGUID, _, sourceFlags, _, _, _, spellID, _, _, amount, _, _, _, _, _, critical = ...
       local outputFrame, message, outputColor = "outgoing", x:Abbreviate(amount, "outgoing"), "genericDamage"
       local merged, critMessage = false, nil
 
@@ -1328,7 +1329,7 @@ x.outgoing_events = {
   ["SPELL_PERIODIC_DAMAGE"] = function(...)
       if not ShowDamage() or not ShowDots() then return end
 
-      local _, _, _, sourceGUID, _, sourceFlags, _, _, _, _, _,  spellID, _, spellSchool, amount, _, _, _, _, _, critical = ...
+      local _, _, sourceGUID, _, sourceFlags, destGUID, _, _, spellID, _, spellSchool, amount, _, _, _, _, _, critical = ...
       local outputFrame, message, outputColor = "outgoing", x:Abbreviate(amount, "outgoing"), "genericDamage"
       local merged = false
 
@@ -1382,7 +1383,7 @@ x.outgoing_events = {
     end,
 
   ["SWING_MISSED"] = function(...)
-      local _, _, _, sourceGUID, _, sourceFlags, _, _, _, _, _,  missType = ...
+      local _, _, sourceGUID, _, sourceFlags, _, _, _, missType = ...
       local outputFrame, message, outputColor = "outgoing", _G["COMBAT_TEXT_"..missType], "misstypesOut"
 
       -- Are we filtering Auto Attacks in the Outgoing frame?
@@ -1411,7 +1412,7 @@ x.outgoing_events = {
     end,
 
   ["SPELL_MISSED"] = function(...)
-      local _, _, _, sourceGUID, _, sourceFlags, _, _, _, _, _,  spellID, _, _, missType = ...
+      local _, _, sourceGUID, _, _, _, _, _, spellID, _, _, missType = ...
       local outputFrame, message, outputColor = "outgoing", _G[missType], "misstypesOut"
 
       if missType == "IMMUNE" and not ShowImmunes() then return end
@@ -1430,7 +1431,7 @@ x.outgoing_events = {
     end,
 
   ["RANGE_MISSED"] = function(...)
-      local _, _, _, sourceGUID, _, sourceFlags, _, _, _, _, _,  spellID, _, _, missType = ...
+      local _, _, sourceGUID, _, sourceFlags, _, _, _, spellID, _, _, missType = ...
       local outputFrame, message, outputColor = "outgoing", _G[missType], "misstypesOut"
 
       if missType == "IMMUNE" and not ShowImmunes() then return end
@@ -1450,8 +1451,9 @@ x.outgoing_events = {
 
   ["SPELL_DISPEL"] = function(...)
       if not ShowDispells() then return end
-
-      local _, _, _, sourceGUID, _, sourceFlags, _, _, _, _, _,   dispelSourceID, dispelSourceName, _,   spellID, spellName, _,  auraType = ...
+      -- TODO
+      --local _, _, _, sourceGUID, _, sourceFlags, _, _, _, _, _,   dispelSourceID, dispelSourceName, _,   spellID, spellName, _,  auraType = ...
+      local target, _, _, spellID, spellName, _,  auraType = select(9, ...)
       local outputFrame, message, outputColor = "general", sformat(format_dispell, XCT_DISPELLED, spellName), "dispellDebuffs"
 
       -- Check for buff or debuff (for color)
@@ -1477,8 +1479,9 @@ x.outgoing_events = {
 
   ["SPELL_STOLEN"] = function(...)
       if not ShowDispells() then return end
-
-      local _, _, _, sourceGUID, _, sourceFlags, _, _, _, _, _,   dispelSourceID, dispelSourceName, _,   spellID, spellName, _,  auraType = ...
+      -- TODO
+      --local _, _, _, sourceGUID, _, sourceFlags, _, _, _, _, _,   dispelSourceID, dispelSourceName, _,   spellID, spellName, _,  auraType = ...
+      local target, spellID, spellName, _,  auraType = select(9, ...)
       local outputFrame, message, outputColor = "general", sformat(format_dispell, XCT_STOLE, spellName), "dispellStolen"
 
       -- Add Icons
@@ -1496,7 +1499,8 @@ x.outgoing_events = {
   ["SPELL_INTERRUPT"] = function(...)
       if not ShowInterrupts() then return end
 
-      local _, _, _, sourceGUID, _, sourceFlags, _, _, _, _, _,  target, _, _,  spellID, effect = ...
+      local _, _, sourceGUID, _, sourceFlags, _, _, _, _, _, _, spellID, effect = ...
+
       local outputFrame, message, outputColor = "general", sformat(format_dispell, INTERRUPTED, effect), "interrupts"
 
       -- Add Icons
