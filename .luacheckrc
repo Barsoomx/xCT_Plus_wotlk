@@ -19,6 +19,7 @@ exclude_files = {
 	"./.luarocks",
 	"**/libs/**/*.lua",
 	"**/libs/**/**/*.lua",
+	"**/libs/**/**/**/*.lua",
 	".luacheckrc"
 }
 

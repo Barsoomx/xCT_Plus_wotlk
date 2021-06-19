@@ -1,8 +1,9 @@
 ## Interface: 30300
 ## Title: xCT+
 ## Notes: An Add-On that enhances and out-performs the default Floating Combat Text!
-## Author: Dandruff-Stormreaver US
+## Author: Dandruff (Barsoom backport)
 ## Version: 3.7.1
+## RequiredDeps: Blizzard_CombatText
 ## SavedVariables: xCTSavedDB
 
 compat.lua
