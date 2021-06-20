@@ -546,24 +546,21 @@ addon.defaults = {
         ["DEATHKNIGHT"] = {
           [1] = {                                         -- Blood
             CreateComboSpellEntry(false, 49222),          --   Bone Shield
-            CreateComboSpellEntry(true, 114851),          --   Blood Charge
             CreateComboSpellEntry(false, 50421),          --   Scent of Blood
           },
           [2] = { },    -- Frost
           [3] = {                                         -- Unholy
-            CreateComboSpellEntry(true, 91342, "pet"),    --   Shadow Infusion
+
           },
         },
 
         ["DRUID"] = {
           [1] = {                                         -- Balance
-            CreateComboSpellEntry(true, 81192),           --   Lunar Shower
           },
           [2] = {                                         -- Feral
             [COMBAT_TEXT_SHOW_COMBO_POINTS_TEXT] = true,
           },
-          [3] = { },    -- Guardian
-          [4] = { },    -- Restoration
+          [3] = { },    -- Restoration
         },
 
         ["HUNTER"] = {
@@ -571,7 +568,7 @@ addon.defaults = {
             CreateComboSpellEntry(true, 19615, "pet"),    --   Frenzy Effect
           },
           [2] = {                                         -- Marksman
-            CreateComboSpellEntry(true, 82925),           --   Ready, Set, Aim...
+
           },
           [3] = {                                         -- Survival
             CreateComboSpellEntry(true, 56453),           --   Lock 'n Load
@@ -594,11 +591,9 @@ addon.defaults = {
 
         ["PRIEST"] = {
           [1] = {                                         -- Discipline
-            CreateComboSpellEntry(true, 81661),           --   Evangelism
           },
           [2] = {                                         -- Holy
             CreateComboSpellEntry(true, 63735),           --   Serendipity
-            CreateComboSpellEntry(false, 114255),         --   Surge of Light
           },
           -- DO NOT USE - SHADOW PRIEST GET SHADOW ORBS
           [3] = {                                         -- Shadow

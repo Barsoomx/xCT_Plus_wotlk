@@ -139,6 +139,10 @@ do
   end
 
   function getSpellDescription(spellID)
+    local name = GetSpellInfo(spellID)
+    local link = tostring(GetSpellLink(name) or nil)
+    spellID = link:match("spell:(%d+)") or spellID
+
     if Descriptions[spellID] then
       return Descriptions[spellID]
     end

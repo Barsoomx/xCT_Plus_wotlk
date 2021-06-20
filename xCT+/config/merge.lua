@@ -62,11 +62,9 @@ addon.merges = {
 
 -- druid (damage)
   [8921]   = CreateMergeSpellEntry("DRUID"),          -- Moonfire
-  [93402]  = CreateMergeSpellEntry("DRUID"),          -- Sunfire
   [5570]   = CreateMergeSpellEntry("DRUID"),          -- Insect Swarm
   [48466]  = CreateMergeSpellEntry("DRUID"),          -- Hurricane
   [50288]  = CreateMergeSpellEntry("DRUID"),          -- Starfall
-  [78777]  = CreateMergeSpellEntry("DRUID"),          -- Wild Mushroom
   [53227]  = CreateMergeSpellEntry("DRUID", .5),      -- Typhoon
   [1822]   = CreateMergeSpellEntry("DRUID"),          -- Rake
   [62078]  = CreateMergeSpellEntry("DRUID", .5),      -- Swipe (Cat Form)
@@ -85,8 +83,6 @@ addon.merges = {
 
 -- hunter
   [49048]  = CreateMergeSpellEntry("HUNTER", .5),      -- Multi-Shot
-  [83077]  = CreateMergeSpellEntry("HUNTER"),          -- Serpent Sting (Instant Serpent Spread)
-  [88466]  = CreateMergeSpellEntry("HUNTER"),          -- Serpent Sting (DOT Serpent Spread)
   [1978]   = CreateMergeSpellEntry("HUNTER"),          -- Serpent Sting
   [49065]  = CreateMergeSpellEntry("HUNTER"),          -- Explosive Trap
 
@@ -102,14 +98,9 @@ addon.merges = {
   [42938]  = CreateMergeSpellEntry("MAGE"),          -- Blizzard
   [42917]  = CreateMergeSpellEntry("MAGE", .5),      -- Frost Nova
   [42921]  = CreateMergeSpellEntry("MAGE"),          -- Arcane Explosion
-  [92315]  = CreateMergeSpellEntry("MAGE"),          -- Pyroblast
-  [83853]  = CreateMergeSpellEntry("MAGE"),          -- Combustion
   [42945]  = CreateMergeSpellEntry("MAGE"),          -- Blast Wave
-  [88148]  = CreateMergeSpellEntry("MAGE"),          -- Flamestrike void
-  [83619]  = CreateMergeSpellEntry("MAGE"),          -- Fire Power
   [42931]  = CreateMergeSpellEntry("MAGE"),          -- Cone of Cold
   [1449]   = CreateMergeSpellEntry("MAGE", .5),      -- Arcane Explosion
-  [92315]  = CreateMergeSpellEntry("MAGE"),          -- Pyroblast
 
 -- paladin (damage)
   [2812]   = CreateMergeSpellEntry("PALADIN", .5),      -- Holy Wrath
@@ -121,14 +112,10 @@ addon.merges = {
   [20187]  = CreateMergeSpellEntry("PALADIN"),          -- Seal of Righteousness
   [53595]  = CreateMergeSpellEntry("PALADIN"),          -- Hammer of the Righteous
   [31935]  = CreateMergeSpellEntry("PALADIN"),          -- Avenger's Shield
-  [94289]  = CreateMergeSpellEntry("PALADIN"),          -- Protector of the Innocent
 
 -- paladin (healing)
   [54172]  = CreateMergeSpellEntry("PALADIN"),          -- Divinge Storm
   [53652]  = CreateMergeSpellEntry("PALADIN"),          -- Beacon of Light
-  [85222]  = CreateMergeSpellEntry("PALADIN"),          -- Light of Dawn
-  [86452]  = CreateMergeSpellEntry("PALADIN"),          -- Holy radiance (HoT) (Thanks Nidra)
-  [82327]  = CreateMergeSpellEntry("PALADIN"),          -- Holy Radiance       (Thanks Nidra)
   [20167]  = CreateMergeSpellEntry("PALADIN"),          -- Seal of Insight (Heal Effect)
   [54968]  = CreateMergeSpellEntry("PALADIN", 1),       -- Holy Light Glyph AoE
   [20267]  = CreateMergeSpellEntry("PALADIN", 5),       -- Judgement of light AoE
@@ -142,7 +129,6 @@ addon.merges = {
   [63675]  = CreateMergeSpellEntry("PRIEST"),          -- Improved Devouring Plague
   [15407]  = CreateMergeSpellEntry("PRIEST"),          -- Mind Flay
   [53022]  = CreateMergeSpellEntry("PRIEST"),          -- Mind Seer
-  [87532]  = CreateMergeSpellEntry("PRIEST"),          -- Shadowy Apparition
 
 -- priest (healing)
   [47750]  = CreateMergeSpellEntry("PRIEST"),          -- Penance (Heal Effect)
@@ -151,7 +137,6 @@ addon.merges = {
   [56161]  = CreateMergeSpellEntry("PRIEST"),          -- Glyph of Prayer of Healing
   [64844]  = CreateMergeSpellEntry("PRIEST"),          -- Divine Hymn
   [32546]  = CreateMergeSpellEntry("PRIEST"),          -- Binding Heal
-  [77489]  = CreateMergeSpellEntry("PRIEST"),          -- Echo of Light
   [34861]  = CreateMergeSpellEntry("PRIEST", .5),      -- Circle of Healing
   [23455]  = CreateMergeSpellEntry("PRIEST"),          -- Holy Nova (Healing Effect)
   [33110]  = CreateMergeSpellEntry("PRIEST"),          -- Prayer of Mending
@@ -167,14 +152,12 @@ addon.merges = {
 -- shaman (damage)
   [49271]  = CreateMergeSpellEntry("SHAMAN", .5),      -- Chain Lightning
   [61654]  = CreateMergeSpellEntry("SHAMAN"),          -- Fire Nova
-  [77478]  = CreateMergeSpellEntry("SHAMAN"),          -- Earhquake
   [59159]  = CreateMergeSpellEntry("SHAMAN"),          -- Thunderstorm
   [58735]  = CreateMergeSpellEntry("SHAMAN", .5),      -- Magma Totem
   [8050]  = CreateMergeSpellEntry("SHAMAN"),           -- Flame Shock
   [25504]  = CreateMergeSpellEntry("SHAMAN", .5),      -- Windfury
 
 -- shaman (healing)
-  [73921]  = CreateMergeSpellEntry("SHAMAN"),          -- Healing Rain
   [55459]  = CreateMergeSpellEntry("SHAMAN", .5),      -- Chain Heal
   [52042]  = CreateMergeSpellEntry("SHAMAN", 4),       -- Healing Stream Totem
   [52000]  = CreateMergeSpellEntry("SHAMAN"),          -- Earthliving
@@ -183,21 +166,17 @@ addon.merges = {
 -- warlock (damage)
   [27243]  = CreateMergeSpellEntry("WARLOCK"),          -- Seed of Corruption (DoT)
   [47834]  = CreateMergeSpellEntry("WARLOCK"),          -- Seed of Corruption (Explosion)
-  [87385]  = CreateMergeSpellEntry("WARLOCK"),          -- Seed of Corruption (Explosion Soulburned)
   [172]    = CreateMergeSpellEntry("WARLOCK"),          -- Corruption
   [43813]  = CreateMergeSpellEntry("WARLOCK"),          -- Corruption (Soulburn: Seed of Corruption)
   [30108]  = CreateMergeSpellEntry("WARLOCK"),          -- Unstable Affliction
   [348]    = CreateMergeSpellEntry("WARLOCK"),          -- Immolate
   [980]    = CreateMergeSpellEntry("WARLOCK"),          -- Bane of Agony
-  [85455]  = CreateMergeSpellEntry("WARLOCK"),          -- Bane of Havoc
-  [85421]  = CreateMergeSpellEntry("WARLOCK"),          -- Burning Embers
   [47818]  = CreateMergeSpellEntry("WARLOCK", 6),       -- Rain of Fire
   [47822]  = CreateMergeSpellEntry("WARLOCK"),          -- Hellfire Effect
   [61291]  = CreateMergeSpellEntry("WARLOCK", .5),      -- Shadowflame (shadow direct damage)
   [61290]  = CreateMergeSpellEntry("WARLOCK"),          -- Shadowflame (fire dot)
   [50590]  = CreateMergeSpellEntry("WARLOCK", 11),      -- Immolation Aura
   [47994]  = CreateMergeSpellEntry("WARLOCK"),          -- Cleave (Felguard)
-  [89753]  = CreateMergeSpellEntry("WARLOCK"),          -- Felstorm (Felguard)
   [20153]  = CreateMergeSpellEntry("WARLOCK"),          -- Immolation (Infrenal)
 
 -- warlock (healing)
