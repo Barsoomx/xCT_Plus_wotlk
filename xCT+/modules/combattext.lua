@@ -294,9 +294,10 @@ local format_pushed       = (LOOT_ITEM_PUSHED_SELF:gsub("%%.*", ""))
 --[=====================================================[
  Capitalize Locals
 --]=====================================================]
-local XCT_STOLE = string.upper(string.sub(ACTION_SPELL_STOLEN, 1, 1))..string.sub(ACTION_SPELL_STOLEN, 2)
-local XCT_KILLED = string.upper(string.sub(ACTION_PARTY_KILL, 1, 1))..string.sub(ACTION_PARTY_KILL, 2)
-local XCT_DISPELLED = string.upper(string.sub(ACTION_SPELL_DISPEL, 1, 1))..string.sub(ACTION_SPELL_DISPEL, 2)
+
+local XCT_STOLE = string.upper(string.utf8sub(ACTION_SPELL_STOLEN, 1, 1))..string.utf8sub(ACTION_SPELL_STOLEN, 2)
+local XCT_KILLED = string.upper(string.utf8sub(ACTION_PARTY_KILL, 1, 1))..string.utf8sub(ACTION_PARTY_KILL, 2)
+local XCT_DISPELLED = string.upper(string.utf8sub(ACTION_SPELL_DISPEL, 1, 1))..string.utf8sub(ACTION_SPELL_DISPEL, 2)
 
 --[=====================================================[
  Flag value for special pets and vehicles
@@ -1518,7 +1519,8 @@ x.outgoing_events = {
   ["PARTY_KILL"] = function(...)
       if not ShowPartyKill() then return end
 
-      local _, _, sourceGUID, _, sourceFlags, _, destGUID, name = ...
+      -- 1624186409.606 PARTY_KILL 0x00000000000000BA Testoffh 1297 0xF13000933F0000D9 Вурдалак-приспешник 68168
+      local _, _, sourceGUID, _, sourceFlags, destGUID, name = ...
       local outputFrame, message, outputColor = "general", sformat(format_dispell, XCT_KILLED, name), "killingBlow"
 
       -- Color the text according to class that got killed

@@ -52,6 +52,7 @@ ignore = {
 --	"431", -- shadowing upvalue
 	"43.", -- Shadowing an upvalue, an upvalue argument, an upvalue loop variable.
 	"542", -- An empty if branch
+	"143/string",
 }
 
 globals = {
