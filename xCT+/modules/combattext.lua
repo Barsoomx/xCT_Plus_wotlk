@@ -353,7 +353,7 @@ function x:GetSpellTextureFormatted(spellID, iconSize)
     message = sformat(format_spell_icon, PET_ATTACK_TEXTURE, iconSize, iconSize)
   else
     local spellName = GetSpellInfo(spellID)
-    local icon = GetSpellTexture(spellName)
+    local icon = GetSpellTexture(spellName or 99999)
     if icon then
       message = sformat(format_spell_icon, icon, iconSize, iconSize)
     else
