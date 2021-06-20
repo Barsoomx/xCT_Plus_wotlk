@@ -39,10 +39,10 @@ addon.defaults = {
     blizzardFCT = {
       blizzardHeadNumbers = false,
       enabled = false,
-      font = "Homespun (xCT+)",
-      fontName = [[Interface\AddOns\]] .. ADDON_NAME .. [[\media\HOOGE.TTF]],
+      font = "PT Sans Narrow",
+      fontName = [[Interface\AddOns\]] .. ADDON_NAME .. [[\media\PTSansNarrow.ttf]],
       fontSize = 32,
-      fontOutline = "4MONOCHROMEOUTLINE",
+      fontOutline = "2OUTLINE",
 
       -- CVars
       ["CombatThreatChanges"] = false,
@@ -82,9 +82,9 @@ addon.defaults = {
         ["Height"] = 128,
 
       -- fonts
-        ["font"] = "Homespun (xCT+)",
-        ["fontSize"] = 20,
-        ["fontOutline"] = "4MONOCHROMEOUTLINE",
+        ["font"] = "PT Sans Narrow",
+        ["fontSize"] = 17,
+        ["fontOutline"] = "2OUTLINE",
         ["fontJustify"] = "CENTER",
 
       -- font colors
@@ -169,9 +169,9 @@ addon.defaults = {
         ["Height"] = 320,
 
       -- fonts
-        ["font"] = "Homespun (xCT+)",
-        ["fontSize"] = 20,
-        ["fontOutline"] = "4MONOCHROMEOUTLINE",
+        ["font"] = "PT Sans Narrow",
+        ["fontSize"] = 17,
+        ["fontOutline"] = "2OUTLINE",
         ["fontJustify"] = "RIGHT",
 
       -- font colors
@@ -240,9 +240,9 @@ addon.defaults = {
         ["Height"] = 128,
 
       -- fonts
-        ["font"] = "Homespun (xCT+)",
+        ["font"] = "PT Sans Narrow",
         ["fontSize"] = 30,
-        ["fontOutline"] = "4MONOCHROMEOUTLINE",
+        ["fontOutline"] = "2OUTLINE",
         ["fontJustify"] = "RIGHT",
 
       -- font colors
@@ -294,9 +294,9 @@ addon.defaults = {
         ["Height"] = 144,
 
       -- fonts
-        ["font"] = "Homespun (xCT+)",
-        ["fontSize"] = 20,
-        ["fontOutline"] = "4MONOCHROMEOUTLINE",
+        ["font"] = "PT Sans Narrow",
+        ["fontSize"] = 17,
+        ["fontOutline"] = "2OUTLINE",
         ["fontJustify"] = "LEFT",
 
       -- font colors
@@ -352,9 +352,9 @@ addon.defaults = {
         ["Height"] = 144,
 
       -- fonts
-        ["font"] = "Homespun (xCT+)",
-        ["fontSize"] = 20,
-        ["fontOutline"] = "4MONOCHROMEOUTLINE",
+        ["font"] = "PT Sans Narrow",
+        ["fontSize"] = 17,
+        ["fontOutline"] = "2OUTLINE",
         ["fontJustify"] = "LEFT",
 
       -- font colors
@@ -393,9 +393,9 @@ addon.defaults = {
         ["Height"] = 64,
 
       -- fonts
-        ["font"] = "HOOGE (xCT)",
+        ["font"] = "PT Sans Narrow",
         ["fontSize"] = 32,
-        ["fontOutline"] = "4MONOCHROMEOUTLINE",
+        ["fontOutline"] = "2OUTLINE",
 
       -- font colors
         colors = {
@@ -418,9 +418,9 @@ addon.defaults = {
         ["Height"] = 128,
 
       -- fonts
-        ["font"] = "Homespun (xCT+)",
-        ["fontSize"] = 20,
-        ["fontOutline"] = "4MONOCHROMEOUTLINE",
+        ["font"] = "PT Sans Narrow",
+        ["fontSize"] = 17,
+        ["fontOutline"] = "2OUTLINE",
         ["fontJustify"] = "CENTER",
 
       -- font colors
@@ -455,9 +455,9 @@ addon.defaults = {
         ["Height"] = 128,
 
       -- fonts
-        ["font"] = "Homespun (xCT+)",
-        ["fontSize"] = 20,
-        ["fontOutline"] = "4MONOCHROMEOUTLINE",
+        ["font"] = "PT Sans Narrow",
+        ["fontSize"] = 17,
+        ["fontOutline"] = "2OUTLINE",
         ["fontJustify"] = "CENTER",
 
       -- font colors
@@ -494,9 +494,9 @@ addon.defaults = {
         ["Height"] = 128,
 
       -- fonts
-        ["font"] = "Homespun (xCT+)",
-        ["fontSize"] = 20,
-        ["fontOutline"] = "4MONOCHROMEOUTLINE",
+        ["font"] = "PT Sans Narrow",
+        ["fontSize"] = 17,
+        ["fontOutline"] = "2OUTLINE",
         ["fontJustify"] = "CENTER",
 
       -- icons
