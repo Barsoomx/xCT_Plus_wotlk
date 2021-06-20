@@ -1522,7 +1522,7 @@ x.outgoing_events = {
       local outputFrame, message, outputColor = "general", sformat(format_dispell, XCT_KILLED, name), "killingBlow"
 
       -- Color the text according to class that got killed
-      if destGUID then
+      if destGUID and bit.band(destGUID:sub(1, 5), 0x00F) == 0 then
         local index = select(2, GetPlayerInfoByGUID(destGUID))
         if RAID_CLASS_COLORS[index] then
           outputColor = {RAID_CLASS_COLORS[index].r, RAID_CLASS_COLORS[index].g, RAID_CLASS_COLORS[index].b}
