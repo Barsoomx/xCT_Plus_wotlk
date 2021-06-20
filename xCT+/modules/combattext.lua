@@ -1518,7 +1518,7 @@ x.outgoing_events = {
   ["PARTY_KILL"] = function(...)
       if not ShowPartyKill() then return end
 
-      local _, _, _, sourceGUID, _, sourceFlags, _, destGUID, name = ...
+      local _, _, sourceGUID, _, sourceFlags, _, destGUID, name = ...
       local outputFrame, message, outputColor = "general", sformat(format_dispell, XCT_KILLED, name), "killingBlow"
 
       -- Color the text according to class that got killed
