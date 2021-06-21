@@ -65,6 +65,7 @@ addon.merges = {
   [5570]   = CreateMergeSpellEntry("DRUID"),          -- Insect Swarm
   [48466]  = CreateMergeSpellEntry("DRUID"),          -- Hurricane
   [50288]  = CreateMergeSpellEntry("DRUID"),          -- Starfall
+  [53190]  = CreateMergeSpellEntry("DRUID", .8),      -- Starfall aoe 10 ticks
   [53227]  = CreateMergeSpellEntry("DRUID", .5),      -- Typhoon
   [1822]   = CreateMergeSpellEntry("DRUID"),          -- Rake
   [62078]  = CreateMergeSpellEntry("DRUID", .5),      -- Swipe (Cat Form)
@@ -210,6 +211,9 @@ addon.merge2h = {
 
   -- Priest (Damage)
   [49821]  = 53022,    -- Mind Sear
+
+  -- Druid (Damage)
+  [53195]  = 53190,    -- Mind Sear
 
   -- Rogue (Damage)
   [2818]   = 57970,    -- Deadly Poison (DoT)
