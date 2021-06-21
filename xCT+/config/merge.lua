@@ -113,6 +113,7 @@ addon.merges = {
   [20187]  = CreateMergeSpellEntry("PALADIN"),          -- Seal of Righteousness
   [53595]  = CreateMergeSpellEntry("PALADIN"),          -- Hammer of the Righteous
   [31935]  = CreateMergeSpellEntry("PALADIN"),          -- Avenger's Shield
+  [61840]  = CreateMergeSpellEntry("PALADIN"),          -- Righteous vengeance
 
 -- paladin (healing)
   [54172]  = CreateMergeSpellEntry("PALADIN"),          -- Divinge Storm
