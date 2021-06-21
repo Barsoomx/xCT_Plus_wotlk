@@ -220,7 +220,7 @@ addon.merge2h = {
   [52874]  = 51723,    -- Fan of knives OH
 
   -- Shaman (damage)
-  [45297]  = 421,      -- Chain Lightning (Mastery)
+  [45297]  = 49271,    -- Chain Lightning (Lightning Overload)
   [32176]  = 32175,    -- Stormstrike
 
   -- Warlock (Damage)
