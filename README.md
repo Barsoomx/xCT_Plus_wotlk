@@ -1,5 +1,9 @@
 [![Game Version](https://img.shields.io/badge/wow-3.3.5-blue.svg)](https://github.com/Barsoomx/xCT_Plus_wotlk/tree/master)
 [![Discord](https://discordapp.com/api/guilds/598993375479463946/widget.png?style=shield)](https://discord.gg/uMbjr87)
+
+xCT+ is a combat text replacement (like MSBT).
+Backported from retail Pandaria, this version compared to other backports offers control over settings in-game and is more minimalistic and anti-spammy than MSBT
+
 # xCT+ 3.7.1 backport 
 
 by [Barsoom](https://forum.wowcircle.net/member.php?u=261041)
