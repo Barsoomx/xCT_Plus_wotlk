@@ -213,7 +213,7 @@ addon.merge2h = {
   [49821]  = 53022,    -- Mind Sear
 
   -- Druid (Damage)
-  [53195]  = 53190,    -- Mind Sear
+  [53195]  = 53190,    -- Starfall aoe 2
 
   -- Rogue (Damage)
   [2818]   = 57970,    -- Deadly Poison (DoT)
