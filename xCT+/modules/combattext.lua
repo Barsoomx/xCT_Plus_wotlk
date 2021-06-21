@@ -316,18 +316,20 @@ local COMBATLOG_FILTER_MY_VEHICLE = bit.bor( COMBATLOG_OBJECT_AFFILIATION_MINE,
 --]=====================================================]
 function x.OnCombatTextEvent(self, event, ...)
   if event == "COMBAT_LOG_EVENT_UNFILTERED" then
-    -- local timestamp, eventType, hideCaster, sourceGUID, sourceName, sourceFlags, srcFlags2, destGUID, destName, destFlags, destFlags2 = select(1, ...)
     local timestamp, eventType, sourceGUID, sourceName, sourceFlags, destGUID, destName, destFlags = select(1, ...)
+
     if sourceGUID == x.player.guid or ( ShowPetDamage() and sourceGUID == UnitGUID("pet") ) or sourceFlags == COMBATLOG_FILTER_MY_VEHICLE then
       if x.outgoing_events[eventType] then
         x.outgoing_events[eventType](...)
       end
     end
+
   elseif event == "COMBAT_TEXT_UPDATE" then
     local subevent, arg2, arg3 = ...
     if x.combat_events[subevent] then
       x.combat_events[subevent](arg2, arg3)
     end
+
   else
     if x.events[event] then
       x.events[event](...)
@@ -352,8 +354,13 @@ function x:GetSpellTextureFormatted(spellID, iconSize)
   if spellID == 0 then
     message = sformat(format_spell_icon, PET_ATTACK_TEXTURE, iconSize, iconSize)
   else
-    local spellName = GetSpellInfo(spellID)
-    local icon = GetSpellTexture(spellName or 99999)
+    local spellName, _, fallbackTexture = GetSpellInfo(spellID)
+    local icon = GetSpellTexture(spellName)
+
+    if (not icon) or (not spellName) then
+      icon = GetSpellTexture(spellID) or fallbackTexture
+    end
+
     if icon then
       message = sformat(format_spell_icon, icon, iconSize, iconSize)
     else
