@@ -83,6 +83,7 @@ addon.merges = {
 
 -- hunter
   [49048]  = CreateMergeSpellEntry("HUNTER", .5),      -- Multi-Shot
+  [58433]  = CreateMergeSpellEntry("HUNTER", .5),      -- Volley
   [1978]   = CreateMergeSpellEntry("HUNTER"),          -- Serpent Sting
   [49065]  = CreateMergeSpellEntry("HUNTER"),          -- Explosive Trap
 
