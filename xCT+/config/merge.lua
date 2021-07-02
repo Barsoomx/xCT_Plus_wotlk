@@ -42,6 +42,9 @@ addon.merges = {
   [71904] = CreateMergeSpellEntry("ITEM", 3.5, "Chaos Bane (Shadowmourne)"),
   [56488] = CreateMergeSpellEntry("ITEM", 3.5, "Global Sapper Charge (Explosion)"),
   [56350] = CreateMergeSpellEntry("ITEM", 5,   "Saronite Bomb (Explosion)"),
+  [69766] = CreateMergeSpellEntry("ITEM", 0.5, "Unchained Magic (Sindragosa)"),
+  [71829] = CreateMergeSpellEntry("ITEM", 0.5, "Arctic Cold (Valithria trash Mind controlled mob)"),
+  [72672] = CreateMergeSpellEntry("ITEM", 0.5, "Mutated Plague (Putricide)"),
 
 
 -- death knight (damage)
@@ -128,7 +131,6 @@ addon.merges = {
   [48078]  = CreateMergeSpellEntry("PRIEST", .5),       -- Holy Nova (Damage Effect)
   [589]    = CreateMergeSpellEntry("PRIEST", 6),       -- Shadow Word: Pain
   [34914]  = CreateMergeSpellEntry("PRIEST", 6),       -- Vampiric Touch
-  [2944]   = CreateMergeSpellEntry("PRIEST"),          -- Devouring Plague
   [63675]  = CreateMergeSpellEntry("PRIEST"),          -- Improved Devouring Plague
   [15407]  = CreateMergeSpellEntry("PRIEST"),          -- Mind Flay
   [53022]  = CreateMergeSpellEntry("PRIEST"),          -- Mind Seer
@@ -205,7 +207,10 @@ addon.merges = {
 
 
 addon.merge2h = {
-
+  -- other
+  [72671]  = 72672,    -- Mutated plague
+  [72451]  = 72672,    -- Mutated plague
+  [72463]  = 72672,    -- Mutated plague
   -- Mage (Damage)
   [55362]  = 44457,    -- Living Bomb (DOT)
 

@@ -351,7 +351,7 @@ end
 function x:GetSpellTextureFormatted(spellID, iconSize)
   local message = ""
 
-  if spellID == 0 then
+  if spellID == 0 or spellID == PET_ATTACK_TEXTURE then
     message = sformat(format_spell_icon, PET_ATTACK_TEXTURE, iconSize, iconSize)
   else
     local spellName, _, fallbackTexture = GetSpellInfo(spellID)
