@@ -1489,7 +1489,7 @@ x.outgoing_events = {
       if not ShowDispells() then return end
       -- TODO
       --local _, _, _, sourceGUID, _, sourceFlags, _, _, _, _, _,   dispelSourceID, dispelSourceName, _,   spellID, spellName, _,  auraType = ...
-      local target, spellID, spellName, _,  auraType = select(9, ...)
+      local target, _, _, spellID, spellName, _,  auraType = select(9, ...)
       local outputFrame, message, outputColor = "general", sformat(format_dispell, XCT_STOLE, spellName), "dispellStolen"
 
       -- Add Icons
