@@ -65,8 +65,17 @@ function x:OnInitialize()
   -- Load the Data Base
   self.db = LibStub('AceDB-3.0'):New('xCTSavedDB', addon.defaults)
 
+
   -- Add the profile options to my dialog config
   addon.options.args['Profiles'] = LibStub('AceDBOptions-3.0'):GetOptionsTable(self.db)
+
+  -- Create the profile options and add them to our option table
+  addon.options.args['Profiles'] = LibStub('AceDBOptions-3.0'):GetOptionsTable(self.db)
+
+  -- Add dual-spec support
+  local LibDualSpec = LibStub('LibDualSpec-1.0')
+  LibDualSpec:EnhanceDatabase(self.db, "xCT")
+  LibDualSpec:EnhanceOptions(addon.options.args['Profiles'], self.db)
 
   -- Had to pass the explicit method into here, not sure why
   self.db.RegisterCallback(self, 'OnProfileChanged', RefreshConfig)
@@ -96,6 +105,7 @@ function x:OnInitialize()
   if self.db.profile.showStartupText then
     print("Loaded |cffFF0000x|r|cffFFFF00CT|r|cffFF0000+|r. To configure, type: |cffFF0000/xct|r")
   end
+
 end
 
 -- Need to create a handle to update frames when every other addon is done.
@@ -1193,4 +1203,3 @@ function x:TrackxCTCommand(input)
   x:UpdatePlayer()
   print("|cffFF0000x|r|cffFFFF00CT+|r Tracking Unit:", name or "default")
 end
-
