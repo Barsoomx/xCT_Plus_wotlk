@@ -79,11 +79,15 @@ addon.merges = {
 
 -- druid (healing)
   [774]    = CreateMergeSpellEntry("DRUID"),          -- Rejuvenation (Normal)
+  [48441]  = CreateMergeSpellEntry("DRUID"),          -- Rejuvenation (Normal)
+  [70691]  = CreateMergeSpellEntry("DRUID"),          -- Rejuvenation (bruh t10)
   [64801]  = CreateMergeSpellEntry("DRUID"),          -- Rejuvenation (First tick)
   [48438]  = CreateMergeSpellEntry("DRUID"),          -- Wild Growth
-  [8936]   = CreateMergeSpellEntry("DRUID"),          -- Regrowth
+  [53251]  = CreateMergeSpellEntry("DRUID"),          -- Wild Growth
+  [48443]  = CreateMergeSpellEntry("DRUID"),          -- Regrowth
   [33763]  = CreateMergeSpellEntry("DRUID"),          -- Lifebloom
   [48445]  = CreateMergeSpellEntry("DRUID"),          -- Tranquility
+  [48503]  = CreateMergeSpellEntry("DRUID"),          -- Seed
 
 -- hunter
   [49048]  = CreateMergeSpellEntry("HUNTER", .5),      -- Multi-Shot
