@@ -38,7 +38,7 @@ end
 -- List of Spells that need to be merged
 addon.merges = {
 
--- items
+-- items (damage)
   [71904] = CreateMergeSpellEntry("ITEM", 3.5, "Chaos Bane (Shadowmourne)"),
   [56488] = CreateMergeSpellEntry("ITEM", 3.5, "Global Sapper Charge (Explosion)"),
   [56350] = CreateMergeSpellEntry("ITEM", 5,   "Saronite Bomb (Explosion)"),
@@ -46,6 +46,9 @@ addon.merges = {
   [71829] = CreateMergeSpellEntry("ITEM", 0.5, "Arctic Cold (Valithria trash Mind controlled mob)"),
   [72672] = CreateMergeSpellEntry("ITEM", 0.5, "Mutated Plague (Putricide)"),
 
+-- items (healing)
+  [71865] = CreateMergeSpellEntry("ITEM", 0.5, "Fountain of Light (Trauma proc)"),
+  [75493] = CreateMergeSpellEntry("ITEM", 0.5, "Twilight Renewal (Glowing Twilight Scale proc)"),
 
 -- death knight (damage)
   [55262]  = CreateMergeSpellEntry("DEATHKNIGHT"),          -- Heart Strike
@@ -171,6 +174,7 @@ addon.merges = {
   [52042]  = CreateMergeSpellEntry("SHAMAN", 4),       -- Healing Stream Totem
   [52000]  = CreateMergeSpellEntry("SHAMAN"),          -- Earthliving
   [61295]  = CreateMergeSpellEntry("SHAMAN"),          -- Riptide (Instant & HoT)
+  [70809]  = CreateMergeSpellEntry("SHAMAN"),          -- Chained Heal (T10 HoT)
 
 -- warlock (damage)
   [27243]  = CreateMergeSpellEntry("WARLOCK"),          -- Seed of Corruption (DoT)
@@ -215,6 +219,9 @@ addon.merge2h = {
   [72671]  = 72672,    -- Mutated plague
   [72451]  = 72672,    -- Mutated plague
   [72463]  = 72672,    -- Mutated plague
+  [71865]  = 71868,    -- Trauma (Heroic version)
+  [75493]  = 75494,    -- Glowing Twilight Scale (Heroic version)
+
   -- Mage (Damage)
   [55362]  = 44457,    -- Living Bomb (DOT)
 
